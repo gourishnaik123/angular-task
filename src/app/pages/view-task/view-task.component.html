@@ -41,7 +41,10 @@
           
             <td>{{item.title}}</td>
             <td>{{item.description}}</td>
-            <td>{{item.priority}}</td>
+            <td>{{item.priority}}
+              <i *ngIf="item.priority ==='low'" class="fa-solid fa-arrow-down text-danger"></i>
+              <i *ngIf="item.priority ==='high'"class="fa-solid fa-arrow-up text-success"></i>
+            </td>
             <td>{{item.dueDate}}</td>
             
             <td>
