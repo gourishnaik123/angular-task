@@ -1,0 +1,68 @@
+<nav class="navbar navbar-expand-lg navbar-primary bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand text-light" >View task</a>
+      <button class="navbar-toggler text-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon text-light"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a routerLink="/" class="nav-link active text-light" aria-current="page" style="cursor: pointer;">Create task</a>
+          </li>
+          <li class="nav-item">
+            <!-- <a class="nav-link text-light" href="#">Link</a> -->
+          </li>
+          
+        </ul>
+      
+      </div>
+    </div>
+  </nav>
+
+
+
+  <div class="container my-4">
+    <h2>View all task</h2>
+    <div class="table-responsive mt-4">
+      <table class="table table-striped table-bordered">
+        <thead>
+          <tr>
+           
+            <th>Title</th>
+            <th>Description</th>
+            <th>Priority level</th>
+            <th>Due date</th>
+            <th>Action</th>
+            <th>completed</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of this.taskData">
+          
+            <td>{{item.title}}</td>
+            <td>{{item.description}}</td>
+            <td>{{item.priority}}</td>
+            <td>{{item.dueDate}}</td>
+            
+            <td>
+                <a class="text-primary"(click)="Edit(item.id)"><i class="fas fa-edit"></i></a>
+                &nbsp;
+                <i class="fa fa-trash text-danger" aria-hidden="true" (click)="deleteTask(item.id)"></i>
+              </td>
+              
+              <input 
+              type="checkbox" 
+              [checked]="isChecked(item.id)" 
+              (change)="toggleCompletion(item.id, $event)">
+          </tr>
+         
+          <!-- Add more rows as needed -->
+        </tbody>
+       
+      </table>
+      <h3 *ngIf="this.taskData?.length ==0" class="text-danger text-center">No task found</h3>
+    </div>
+  </div>
+
+
+  
