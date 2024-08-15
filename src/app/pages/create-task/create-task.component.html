@@ -52,10 +52,18 @@
               </select>
             </div>
             <div class="col-md-6">
-              <label for="inputDate" class="form-label">Due Date</label>
-              <input type="date" class="form-control" id="inputDate" formControlName="dueDate"placeholder="Enter your description"[ngClass]="{'invalid-form-control': !taskForm.get('dueDate')?.valid && taskForm.get('dueDate')?.touched}">
-            </div>
-          </div>
+                <label for="inputDate" class="form-label">Due Date</label>
+                <input 
+                  type="date" 
+                  class="form-control" 
+                  id="inputDate" 
+                  formControlName="dueDate"
+                  [attr.min]="minDate"
+                  placeholder="Enter your description"
+                  [ngClass]="{'invalid-form-control': !taskForm.get('dueDate')?.valid && taskForm.get('dueDate')?.touched}"
+                >
+              </div>
+                        </div>
           <h5 *ngIf="successtext" class="text-success text-center">Task created successfully</h5>
           <button type="submit" class="btn btn-dark mt-2">Submit</button>
         </form>

@@ -48,9 +48,9 @@
                 <a class="text-primary"(click)="Edit(item.id)"><i class="fas fa-edit"></i></a>
                 &nbsp;
                 <i class="fa fa-trash text-danger" aria-hidden="true" (click)="deleteTask(item.id)"></i>
-              </td>
+              </td >
               
-              <input 
+              <input class="text-center" 
               type="checkbox" 
               [checked]="isChecked(item.id)" 
               (change)="toggleCompletion(item.id, $event)">

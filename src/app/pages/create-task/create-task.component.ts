@@ -9,7 +9,11 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class CreateTaskComponent implements OnInit{
   taskForm!: FormGroup;
   successtext:boolean = false;
-  constructor(private api:ApiCallsService,private fb: FormBuilder){}
+  minDate: string;
+  constructor(private api:ApiCallsService,private fb: FormBuilder){
+    const today = new Date();
+    this.minDate = today.toISOString().split('T')[0];
+  }
   ngOnInit(): void {
     this.taskForm = this.fb.group({
       title: ['', Validators.required],

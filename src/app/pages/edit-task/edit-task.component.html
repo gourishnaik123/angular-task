@@ -53,7 +53,16 @@
             </div>
             <div class="col-md-6">
               <label for="inputDate" class="form-label">Due Date</label>
-              <input type="date" class="form-control" id="inputDate" formControlName="dueDate"placeholder="Enter your description"[ngClass]="{'invalid-form-control': !editForm.get('dueDate')?.valid && editForm.get('dueDate')?.touched}">
+              <!-- <input type="date" class="form-control" id="inputDate" formControlName="dueDate"placeholder="Enter your description"[ngClass]="{'invalid-form-control': !editForm.get('dueDate')?.valid && editForm.get('dueDate')?.touched}"> -->
+              <input 
+              type="date" 
+              class="form-control" 
+              id="inputDate" 
+              formControlName="dueDate"
+              [attr.min]="minDate"
+              placeholder="Enter your description"
+              [ngClass]="{'invalid-form-control': !editForm.get('dueDate')?.valid && editForm.get('dueDate')?.touched}"
+            >
             </div>
           </div>
 

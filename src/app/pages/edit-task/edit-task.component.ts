@@ -11,6 +11,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 export class EditTaskComponent implements OnInit {
   editForm: FormGroup;
   taskId!: string; 
+minDate: string;
 
   constructor(
     private fb: FormBuilder,
@@ -24,6 +25,8 @@ export class EditTaskComponent implements OnInit {
       priority: ['low', Validators.required],
       dueDate: ['', Validators.required]
     });
+    const today = new Date();
+    this.minDate = today.toISOString().split('T')[0];
   }
 
   ngOnInit(): void {
